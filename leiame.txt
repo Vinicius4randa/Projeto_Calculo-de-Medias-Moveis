@@ -1,0 +1,17 @@
+Grupo:
+    - Igor Batista
+    - Rayanne Rayssa
+    - Vinícius Aranda Lima da Silva
+    
+REFERÊNCIAS:
+    Seções de 3.10 a 3.17: https://panda.ime.usp.br/pythonds/static/pythonds_pt/03-EDBasicos/toctree.html
+
+COMENTÁRIOS:
+    -Iniciamos o projeto pela implementação do FilaArray,como proposto nas Restrições, 
+    nomeado como um TAD Data_Intercection
+    -Em seguida adicionamos a variação de Collections, alterando o metodo privado aumenta tamanho,
+    para que o deque faça a subtração automatica de itens em seu fim e  mantenha seu tamanho inicial.
+    -Para concluir o tipo Data_Intercection foi adicionado o metodo publico media móvel, que tira a média 
+    dos valores atuais
+
+DESEMPENHO:

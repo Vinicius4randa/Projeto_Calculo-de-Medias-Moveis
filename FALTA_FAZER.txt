@@ -1,0 +1,18 @@
+Tratar a saída do media-movel: arredondar para 1 casa decimal
+Menu com opções:+enviar dados pelo teclado; 
+                +dados por arquivo de texto;
+                +configurar janela de leitura(k);
+                +exibir media movel, para dados carregados;
+                +Salvar em arquivo de texto
+
+Função que recebe a lista de dados que serão carregados, e inicializa o Deque Data_Intercection
+Input de dados pelo teclado
+Função que altera o valor de self.Janela em TAD(ver a possibilidade de tornar um tipo estatico)
+Implementar leitura e salvamento em arquivo de texto externo(como solicitado em funcionalidades)
+Fazer análize em Big-O do metodo media_movel
+Testes de Validação(Restrições-3)
+
+=============================Feito==================================
+
+TAD Deque a partir do FilaArray(Restrições-1)
+Tratamento dos primeiros elementos(Restrições-2)
