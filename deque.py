@@ -33,7 +33,7 @@ class Data_Intercection:
                 return None
             soma += i
             
-        return round(soma/self.janela)
+        return round(soma/self.janela, 1)
 
     
     def _dequeue(self):#_privado: retira o valor da primeira posição do deque e põe none no lugar
