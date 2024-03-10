@@ -9,8 +9,10 @@ class FilaArray:
     def is_empty(self):
         return self._tamanho == 0
     
-    def fim(self):
+    def last(self):
         return self._dados[(self._inicio + self._tamanho-1) % len(self._dados)]
+    def first(self):
+        return self._dados[self._inicio]
     
     def dequeue(self):
         if self.is_empty():
@@ -36,14 +38,3 @@ class FilaArray:
         self._inicio = 0
 
 teste = FilaArray()
-for i in range(3):
-    teste.enqueue(f'testando:{i+1}')
-    print(teste._dados)
-
-for i in range(2):
-    teste.dequeue()
-    print(teste._dados)
-
-for i in range(3):
-    teste.enqueue(f'testando-novamente:{i+1}')
-    print(teste._dados)
