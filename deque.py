@@ -3,6 +3,7 @@ class Data_Intercection:
         self._dados = [None] * Maxlen
         self._tamanho = 0
         self._inicio = 0
+        self._medias = []
         
         self.janela = Maxlen
 
@@ -25,6 +26,7 @@ class Data_Intercection:
         disponivel = (self._inicio + self._tamanho) %len(self._dados)
         self._dados[disponivel] = e
         self._tamanho += 1
+        self._medias.append(self.media_movel())
         
     def media_movel(self):#tira a media de todos os itens do deque se o deque possuir um valor none retorna none
         soma = 0
@@ -35,6 +37,8 @@ class Data_Intercection:
             
         return round(soma/self.janela, 1)
 
+    def show_media_movel(self):
+        return self._medias
     
     def _dequeue(self):#_privado: retira o valor da primeira posição do deque e põe none no lugar
         if self.is_empty():
