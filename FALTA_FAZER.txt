@@ -1,8 +1,4 @@
-Tratar a saída do media-movel: arredondar para 1 casa decimal
-Menu com opções:+enviar dados pelo teclado; 
-                +dados por arquivo de texto;
-                +configurar janela de leitura(k);
-                +exibir media movel, para dados carregados;
+Menu com opções:+configurar janela de leitura(k);
                 +Salvar em arquivo de texto
 
 Função que recebe a lista de dados que serão carregados, e inicializa o Deque Data_Intercection
@@ -16,3 +12,7 @@ Testes de Validação(Restrições-3)
 
 TAD Deque a partir do FilaArray(Restrições-1)
 Tratamento dos primeiros elementos(Restrições-2)
+Tratar a saída do media-movel: arredondar para 1 casa decimal
+Menu com opções:+enviar dados pelo teclado; 
+                +dados por arquivo de texto;
+                +exibir media movel, para dados carregados;
