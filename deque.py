@@ -16,14 +16,17 @@ class Data_Intercection:
     def first(self):
         return self._dados[self._inicio]
     
-    def next(self, e):
+    def next(self, e):#Adiciona um valor na ultima posição do deque
         if self._tamanho == len(self._dados):
             self._dequeue()
-            self._collection_step()
+            self._collection_step()#se estiver cheio deleta o item da primeira posição e chama collection step para reordenar o deque
+        
+        #COMANDOS PARA ADICIONAR UM NOVO ITEM AO DEQUE(ACHO QUE DA PRA MELHORAR ISSO)
         disponivel = (self._inicio + self._tamanho) %len(self._dados)
         self._dados[disponivel] = e
         self._tamanho += 1
-    def media_movel(self):
+        
+    def media_movel(self):#tira a media de todos os itens do deque se o deque possuir um valor none retorna none
         soma = 0
         for i in self._dados:
             if not i:
@@ -33,7 +36,7 @@ class Data_Intercection:
         return round(soma/self.janela)
 
     
-    def _dequeue(self):
+    def _dequeue(self):#_privado: retira o valor da primeira posição do deque e põe none no lugar
         if self.is_empty():
             raise FilaVazia('A Fila está vazia')
         result = self._dados[self._inicio]
@@ -42,7 +45,7 @@ class Data_Intercection:
         self._tamanho -= 1
         return result
     
-    def _collection_step(self):
+    def _collection_step(self):#_privado: realoca valores das ultimas posições para as primeiras deixando um espaço vasio na ultima posição
         dados_antigos = self._dados 
         self._dados = [None] * self.janela
         posicao = self._inicio
@@ -51,6 +54,8 @@ class Data_Intercection:
             posicao = (1 + posicao) % len(dados_antigos)
         self._inicio = 0
 
+
+#TAVA TESTANDO
 teste = Data_Intercection()
 dados = [10,15,12,5,2,3,1]
 saida = []
