@@ -50,7 +50,11 @@ if __name__ == '__main__':
             case '2':
                 inserirDadosViaArquivo()
             case '3':
-                print('Alteração de períodos de média móvel')
+                janela = int(input('Digite o novo período da média móvel: '))
+                deque.set_janela(janela)
+                print('Período alterado!')
+                if not deque.is_empty(): 
+                    print('As médias foram recalculadas de acordo com novo período!')
             case '4':
                 print('Média móvel calculada: ', deque.show_media_movel())                
             case '5':
