@@ -21,10 +21,15 @@ def inserirDadosViaArquivo():
             deque.next(int(dado))
 
 def salvarMediasCalculadasEmArquivo():
+    if deque.is_empty(): 
+        print('Não há médias calculadas para salvar!')
+        return
     path_arquivo = input('Digite o caminho do arquivo: ')
     with open(path_arquivo, 'w') as arquivo:
         for media in deque.show_media_movel():
             arquivo.write(str(media) + '\n')
+
+    print('Médias salvas com sucesso!')
 
 
 if __name__ == '__main__':

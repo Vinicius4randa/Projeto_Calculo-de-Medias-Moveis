@@ -23,6 +23,8 @@ class Data_Intercection:
         return self.dados[(self._inicio + self._tamanho-1) % len(self.dados)]
     
     def first(self):
+        if self.is_empty():
+            raise FilaVazia('A Fila está vazia')
         return self.dados[self._inicio]
     
     def next(self, valor, recalculando=False):
@@ -62,7 +64,7 @@ class Data_Intercection:
     def set_janela(self, janela):
         self._janela = janela
         self._limpardados()
-        self.recalcular_medias_movel()
+        self._recalcular_medias_movel()
 
     def reseta_intersecao(self):
         self._limpardados()
@@ -75,6 +77,6 @@ class Data_Intercection:
         self._soma_media_movel = 0   
         self.dados = [None] * self._janela
 
-    def recalcular_medias_movel(self):
+    def _recalcular_medias_movel(self):
         for i in self._todosdados:
             self.next(i, True)
