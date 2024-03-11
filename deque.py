@@ -1,3 +1,6 @@
+from filavazia import FilaVazia
+
+
 class Data_Intercection:
 
     JANELA_PADRAO = 7
@@ -22,21 +25,23 @@ class Data_Intercection:
     def first(self):
         return self.dados[self._inicio]
     
-    def next(self, e, recalculando=False):#Adiciona um valor na ultima posição do deque
+    def next(self, valor, recalculando=False):
         if self._tamanho == len(self.dados):
-            primeiro_valor = self._dequeue()
+            primeiro_valor = self._delete_first()
             self._soma_media_movel -= primeiro_valor
         
-        #COMANDOS PARA ADICIONAR UM NOVO ITEM AO DEQUE(ACHO QUE DA PRA MELHORAR ISSO)
-        disponivel = (self._inicio + self._tamanho) %len(self.dados)
-        self.dados[disponivel] = e
-        self._tamanho += 1
-        self._soma_media_movel += e
+        self._add_last(valor) 
+        self._soma_media_movel += valor
         self._medias.append(self._media_movel())
         if not recalculando:
-            self._todosdados.append(e)
+            self._todosdados.append(valor)
+
+    def _add_last(self, valor):
+        disponivel = (self._inicio + self._tamanho) %len(self.dados)
+        self.dados[disponivel] = valor
+        self._tamanho += 1       
         
-    def _media_movel(self):#tira a media de todos os itens do deque se o deque possuir um valor none retorna none
+    def _media_movel(self):
         if self._tamanho == len(self.dados):
             return round(self._soma_media_movel/self._janela, 1)
             
@@ -45,7 +50,7 @@ class Data_Intercection:
     def show_media_movel(self):
         return self._medias
     
-    def _dequeue(self):#_privado: retira o valor da primeira posição do deque e põe none no lugar
+    def _delete_first(self):
         if self.is_empty():
             raise FilaVazia('A Fila está vazia')
         result = self.dados[self._inicio]

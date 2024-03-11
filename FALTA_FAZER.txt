@@ -1,9 +1,3 @@
-Dentro do método next separar o código referente ao add_last(enqueue())
-Mudar de dequeue() para delete_first
-Verificar se o trecho a seguir é realmente necessário:
-    disponivel = (self._inicio + self._tamanho) %len(self._dados)
-Implementar exception de FilaVazia
-
 Fazer análize em Big-O do metodo media_movel
 Testes de Validação(Restrições-3)
 
@@ -17,4 +11,7 @@ Menu com opções.
 Input de dados pelo teclado
 Função que recebe a lista de dados que serão carregados, e inicializa o Deque Data_Intercection
 Implementar leitura e salvamento em arquivo de texto externo(como solicitado em funcionalidades)
-Função que altera o valor de self.Janela em TAD(ver a possibilidade de tornar um tipo estatico)                
+Função que altera o valor de self.Janela em TAD(ver a possibilidade de tornar um tipo estatico) 
+Dentro do método next separar o código referente ao add_last(enqueue()) 
+Mudar de dequeue() para delete_first              
+Implementar exception de FilaVazia
