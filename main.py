@@ -20,6 +20,12 @@ def inserirDadosViaArquivo():
         for dado in dados:
             deque.next(int(dado))
 
+def salvarMediasCalculadasEmArquivo():
+    path_arquivo = input('Digite o caminho do arquivo: ')
+    with open(path_arquivo, 'w') as arquivo:
+        for media in deque.show_media_movel():
+            arquivo.write(str(media) + '\n')
+
 
 if __name__ == '__main__':
     print()
@@ -48,7 +54,7 @@ if __name__ == '__main__':
             case '4':
                 print('Média móvel calculada: ', deque.show_media_movel())                
             case '5':
-                print('Salvando em arquivos as médias móveis calculadas')
+                salvarMediasCalculadasEmArquivo()
             case '6':
                 print('Saindo...')
                 exit(0)

@@ -5,7 +5,7 @@ class Data_Intercection:
         self._inicio = 0
         self._medias = []
         
-        self.janela = Maxlen
+        self._janela = Maxlen
 
     def __len__(self):
         return self._tamanho
@@ -35,7 +35,7 @@ class Data_Intercection:
                 return None
             soma += i
             
-        return round(soma/self.janela, 1)
+        return round(soma/self._janela, 1)
 
     def show_media_movel(self):
         return self._medias
@@ -51,7 +51,7 @@ class Data_Intercection:
     
     def _collection_step(self):#_privado: realoca valores das ultimas posições para as primeiras deixando um espaço vasio na ultima posição
         dados_antigos = self._dados 
-        self._dados = [None] * self.janela
+        self._dados = [None] * self._janela
         posicao = self._inicio
         for k in range(self._tamanho): 
             self._dados[k] = dados_antigos[posicao]
