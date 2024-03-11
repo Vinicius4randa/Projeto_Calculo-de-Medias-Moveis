@@ -1,10 +1,13 @@
 class Data_Intercection:
-    def __init__(self,Maxlen=3):
-        self._dados = [None] * Maxlen
+
+    JANELA_PADRAO = 7
+
+    def __init__(self):
+        self._dados = [None] * Data_Intercection.JANELA_PADRAO
         self._tamanho = 0
         self._inicio = 0
         self._medias = []
-        self._janela = Maxlen
+        self._janela = Data_Intercection.JANELA_PADRAO
         self._todos_dados = []
         self._soma_media_movel = 0
 
@@ -15,6 +18,7 @@ class Data_Intercection:
     
     def last(self):
         return self._dados[(self._inicio + self._tamanho-1) % len(self._dados)]
+    
     def first(self):
         return self._dados[self._inicio]
     
@@ -22,7 +26,6 @@ class Data_Intercection:
         if self._tamanho == len(self._dados):
             primeiro_valor = self._dequeue()
             self._soma_media_movel -= primeiro_valor
-            self._collection_step()#se estiver cheio deleta o item da primeira posição e chama collection step para reordenar o deque
         
         #COMANDOS PARA ADICIONAR UM NOVO ITEM AO DEQUE(ACHO QUE DA PRA MELHORAR ISSO)
         disponivel = (self._inicio + self._tamanho) %len(self._dados)
@@ -50,15 +53,6 @@ class Data_Intercection:
         self._inicio = (self._inicio + 1) %len(self._dados)
         self._tamanho -= 1
         return result
-    
-    def _collection_step(self):#_privado: realoca valores das ultimas posições para as primeiras deixando um espaço vasio na ultima posição
-        dados_antigos = self._dados 
-        self._dados = [None] * self._janela
-        posicao = self._inicio
-        for k in range(self._tamanho): 
-            self._dados[k] = dados_antigos[posicao]
-            posicao = (1 + posicao) % len(dados_antigos)
-        self._inicio = 0
 
     def set_janela(self, janela):
         self._janela = janela
@@ -72,16 +66,3 @@ class Data_Intercection:
     def recalcular_medias_movel(self):
         for i in self._todos_dados:
             self.next(i, True)
-            
-
-#TAVA TESTANDO
-# teste = Data_Intercection()
-# dados = [10,15,12,5,2,3,1]
-# saida = []
-
-# for i in dados:
-#     teste.next(i)
-#     saida.append(teste.media_movel())
-
-# print(saida) 
-
