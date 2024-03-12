@@ -7,11 +7,27 @@ REFERÊNCIAS:
     Seções de 3.10 a 3.17: https://panda.ime.usp.br/pythonds/static/pythonds_pt/03-EDBasicos/toctree.html
 
 COMENTÁRIOS:
-    -Iniciamos o projeto pela implementação do FilaArray,como proposto nas Restrições, 
+    -Iniciamos o projeto pela implementação do FilaArray, como proposto nas Restrições, 
     nomeado como um TAD Data_Intercection
-    -Em seguida adicionamos a variação de Collections, alterando o metodo privado aumenta tamanho,
-    para que o deque faça a subtração automatica de itens em seu fim e  mantenha seu tamanho inicial.
-    -Para concluir o tipo Data_Intercection foi adicionado o metodo publico media móvel, que tira a média 
-    dos valores atuais
+    - Referente ao TAD Data_Intercection:
+        - Inicializamos todos os atributos que serão utilizados.
+        - Importando mencionar sobre o atributo dados, ele vai conter os valores dentro na janela atual.
+        - O atributo _todosdados vai conter todos os valores inseridos pelo usuário via terminal ou via arquivo.
 
-DESEMPENHO:
+    - Sempre que um valor é inserido chamamos o método next que irá utilizar o deque, realizando o add_last e o delete_first
+    e algumas ações de regrasde negócio para otimizar o cálculo da média móvel.
+    - Achamos interessante a criação do método _limpardados para reutilização de código.
+    - Temos um método também que achamos interessante que é para recalcular as médias após a alteração de da janela. 
+    - Criamos também um main.py para trabalharmos com o deque, nele contém o menu de opções e as ações de cada um.
+    - Conseguimos realizar todo o projeto e colocamos algumas funções no menu que achamos interessantes.
+        - Acessar dados inseridos.
+        - Dentro da opção acima, perguntamos se o usuário quer limpar os dados ja inseridos.
+    - Em relação ao arquivo de entrada, adotamos o padrão de em cada linha conter apenas o valor, temos um de exemplo no repositório: arquivo.txt
+    
+
+DESEMPENHO DO CÁLCULO DA MÉDIA MÓVEL:
+    - No método next que é onde nós realizamos as operações de add_last e delete_first para controle dos dados da janela, 
+    realizamos operações de soma e subtração, isso nos ajuda a no momento do cálculo da média móvel, não utilizarmos a operação 
+    de for e simplesmente fazer uma validação se a janela estiver cheia fazemos o cálculo da média móvel (soma/tamanho_janela) 
+    e se ainda não foi inserido a quantidade de dados necessárias executamos return None, logo temos uma função constante com O(1).
+

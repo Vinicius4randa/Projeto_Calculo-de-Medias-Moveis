@@ -16,10 +16,13 @@ class Data_Intercection:
 
     def __len__(self):
         return self._tamanho
+    
     def is_empty(self):
         return self._tamanho == 0
     
     def last(self):
+        if self.is_empty():
+            raise FilaVazia('A Fila está vazia')
         return self.dados[(self._inicio + self._tamanho-1) % len(self.dados)]
     
     def first(self):
